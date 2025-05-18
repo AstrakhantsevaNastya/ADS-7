@@ -21,35 +21,32 @@ void Train::addCar(bool light) {
 
 int Train::getLength() {
     if (!firstCar) return 0;
-    
+
     operationCount = 0;
     Car* current = firstCar;
-    
+
     if (!current->light) {
         current->light = true;
-        operationCount++;
     }
-    
+
     while (true) {
         int stepsForward = 0;
         Car* forwardCar = current;
+
         do {
             forwardCar = forwardCar->next;
             stepsForward++;
             operationCount++;
         } while (!forwardCar->light);
-        
+
         forwardCar->light = false;
-        operationCount++;
-        
-        int stepsBackward = 0;
+
         Car* backwardCar = forwardCar;
-        while (stepsBackward < stepsForward) {
+        for (int i = 0; i < stepsForward; ++i) {
             backwardCar = backwardCar->prev;
-            stepsBackward++;
             operationCount++;
         }
-        
+
         if (backwardCar == current && !backwardCar->light) {
             return stepsForward;
         }
