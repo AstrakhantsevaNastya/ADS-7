@@ -4,12 +4,14 @@
 
 int main() {
   Train train;
-  int count = 60; // кол-во вагонов
+  const int wagonCount = 60; // кол-во вагонов
 
-  while (count--)
-    train.addCar(false);
+  for (int i = 0; i < wagonCount; ++i) {
+        train.addCar(false);
+  }
 
-  std::cout << train.getLength() << std::endl;
-  std::cout << train.getOpCount() << std::endl;
+  std::cout << "Train length: " << train.getLength() << std::endl;
+  std::cout << "Operations count: " << train.getOpCount() << std::endl;
+  
   return 0;
 }
