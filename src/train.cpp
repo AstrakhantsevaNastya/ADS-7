@@ -5,7 +5,7 @@ Train::Train() : operationCount(0), firstCar(nullptr) {}
 
 void Train::addCar(bool light) {
     Car* newCar = new Car{light, nullptr, nullptr};
-    
+
     if (!firstCar) {
         firstCar = newCar;
         newCar->next = newCar;
@@ -41,7 +41,7 @@ int Train::getLength() {
 
         forwardCar->light = false;
 
-        Car* backwardCar = forwardCar;
+        const Car* backwardCar = forwardCar;
         for (int i = 0; i < stepsForward; ++i) {
             backwardCar = backwardCar->prev;
             operationCount++;
