@@ -12,6 +12,5 @@ int main() {
 
   std::cout << "Train length: " << train.getLength() << std::endl;
   std::cout << "Operations count: " << train.getOpCount() << std::endl;
-  
   return 0;
 }
